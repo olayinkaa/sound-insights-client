@@ -5,7 +5,7 @@ const NavBar = () => {
     return (
         <div>
             <header id="navbar">
-                <nav className="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+                <nav className="navbar fixed-top navbar-expand-lg navbar-dark bg-dark" id="home">
                     {/* eslint-disable-next-line */}
                     <a className="navbar-brand" href="#">
 
@@ -18,7 +18,7 @@ const NavBar = () => {
                         <ul className="navbar-nav ml-auto">
                             <li className="nav-item active">
                             {/* eslint-disable-next-line */}
-                                <a className="nav-link" href="#">HOME</a>
+                                <a className="nav-link" href="#home">HOME</a>
                             </li>
                             <li className="nav-item">
                                 <a className="nav-link" href="#about">ABOUT US</a>
