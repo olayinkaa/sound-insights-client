@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import {getMp3} from '../actions/mp3Actions'
 import {baseURL} from '../utils/configs'
+import {Link} from 'react-router-dom'
 
 class ServiceDisplay extends Component {
     constructor (props) {
@@ -43,8 +44,8 @@ class ServiceDisplay extends Component {
                                 <source src={`${baseURL}/soundinsight/mp3/`+soundObj.title}></source>
                             </audio>
                             <ul className="el-info">
-                                <li><a type="button" className="img-circle font-20" href="#0" onClick={()=>this.handlePlay(idx)}><i className="ti-control-play" /></a></li>
-                                <li><a type="button" className="img-circle font-20" href="#0" onClick={()=>this.handlePause(idx)}><i className="ti-control-pause" /></a></li>
+                                <li><Link type="button" className="img-circle font-20" to={""}  onClick={()=>this.handlePlay(idx)}><i className="ti-control-play" /></Link></li>
+                                <li><Link type="button" className="img-circle font-20" to={""} onClick={()=>this.handlePause(idx)}><i className="ti-control-pause" /></Link></li>
                             </ul>
                         </div>
                     </div>
