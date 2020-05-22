@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react'
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import {getMp3} from '../actions/mp3Actions'
-import {baseURL} from '../utils/configs'
+// import {baseURL} from '../utils/configs'
 import {Link} from 'react-router-dom'
 
 class ServiceDisplay extends Component {
@@ -38,10 +38,10 @@ class ServiceDisplay extends Component {
             <div className="col-lg-3 col-md-3" key={idx}>
                 <div className="el-card-item">
                     <div className="el-card-avatar el-overlay-1"> 
-                        <img src={`${baseURL}/soundinsight/img/`+soundObj.thumbnail} alt="user" style={{height:'200px'}} />
+                        <img src={soundObj.thumbnail} alt="user" style={{height:'200px'}} />
                         <div className="el-overlay">
                             <audio className={`audio-element-${idx}`}>
-                                <source src={`${baseURL}/soundinsight/mp3/`+soundObj.title}></source>
+                                <source src={soundObj.title}></source>
                             </audio>
                             <ul className="el-info">
                                 <li><Link type="button" className="img-circle font-20" to={""}  onClick={()=>this.handlePlay(idx)}><i className="ti-control-play" /></Link></li>

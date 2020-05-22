@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import {getMp3,downloadFile} from '../actions/mp3Actions'
-import {baseURL} from '../utils/configs'
+// import {baseURL} from '../utils/configs'
 
 const ServiceTable=({audioClips})=> {
 
@@ -17,7 +17,7 @@ const ServiceTable=({audioClips})=> {
         return audioClips!==null&&audioClips!==undefined&&audioClips.length>0&&audioClips.filter(item=>item.downloadable==="1").map((data,idx)=>(
             <tr>
                 <td>{idx+1}</td>
-                <td> <img src={`${baseURL}/soundinsight/img/`+data.thumbnail} alt="user" style={{height:'70px',width:'70px'}} /></td>
+                <td> <img src={data.thumbnail} alt="user" style={{height:'70px',width:'70px'}} /></td>
                 <td>{data.artist}</td>
                 <td>{data.name}</td>
                 <td>{data.genre}</td>

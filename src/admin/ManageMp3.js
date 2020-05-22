@@ -2,7 +2,7 @@ import React, { useEffect,useState,Fragment } from 'react'
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import {getMp3,reloadMp3,createNewMP3,deleteMp3} from '../actions/mp3Actions'
-import {baseURL} from '../utils/configs'
+// import {baseURL} from '../utils/configs'
 import MyLoader from '../components/MyLoader'
 import {Formik,Form} from 'formik'
 import {CustomTextInput,CustomSelect} from '../components/FormikCustomFormTypes'
@@ -53,7 +53,7 @@ const ManageMp3 = ({getMp3,reloadMp3,deleteMp3,isLoading,audioClips})=> {
                 <td>{idx+1}</td>
                 <td>{data.artist}</td>
                 <td>{data.name}</td>
-                <td> <img src={`${baseURL}/soundinsight/img/`+data.thumbnail} alt="user" style={{height:'70px',width:'70px'}} /></td>
+                <td> <img src={data.thumbnail} alt="user" style={{height:'70px',width:'70px'}} /></td>
                 <td>{data.genre}</td>
                 <td>{parseFloat((data.size)/1000000).toFixed(2)} mb</td>
                 <td>{data.type}</td>
