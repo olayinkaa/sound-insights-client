@@ -1,5 +1,5 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
+// import {Link} from 'react-router-dom'
 
 const Promo = () => {
     return (
@@ -7,7 +7,7 @@ const Promo = () => {
             
             <div className="container">
                 <p>Register for free Guitar Training</p>
-                <Link to={""} className="btn btn-primary btn-lg">Register Now</Link>
+                <button  className="btn btn-primary btn-lg" disabled>Register Now</button>
             </div>
             
         </>

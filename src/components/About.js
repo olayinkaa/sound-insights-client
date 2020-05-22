@@ -15,7 +15,7 @@ const About = ({getAboutUs,aboutus})=> {
 
     const contents = ()=>{
         return aboutus.map(data=>(
-        <div className="col-md-12" key={data.id}>
+        <div className="col-md-12 text-justify" key={data.id}>
             <h2>{data.title}</h2>
             <div className="about-content">
                {data.description}
@@ -30,7 +30,7 @@ const About = ({getAboutUs,aboutus})=> {
                     <div className="row">
                         {contents()}
                     </div>
-                    <button type="button" className="btn btn-primary">Read More</button>
+                    {/* <button type="button" className="btn btn-primary">Read More</button> */}
                 </div>
             </Fragment>
         )
