@@ -103,4 +103,6 @@ export const downloadFile =(id)=>{
         document.body.appendChild(link);
         link.click();
       });
+
 }
+

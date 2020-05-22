@@ -15,7 +15,7 @@ const ServiceTable=({audioClips})=> {
     
     const Mp3Records = ()=> {
         return audioClips!==null&&audioClips!==undefined&&audioClips.length>0&&audioClips.filter(item=>item.downloadable==="1").map((data,idx)=>(
-            <tr>
+            <tr key={data.id}>
                 <td>{idx+1}</td>
                 <td> <img src={data.thumbnail} alt="user" style={{height:'70px',width:'70px'}} /></td>
                 <td>{data.artist}</td>
@@ -23,7 +23,7 @@ const ServiceTable=({audioClips})=> {
                 <td>{data.genre}</td>
                 <td>{parseFloat((data.size)/1000000).toFixed(2)} mb</td>
                 <td>{data.type}</td>
-                <td class="text-nowrap">
+                <td className="text-nowrap">
                     <button onClick={e=>download(e,data.id)} className="btn btn-success btn-sm">
                         <i className="fa fa-download"></i> 
                     </button>

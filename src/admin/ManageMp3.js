@@ -27,7 +27,10 @@ const ManageMp3 = ({getMp3,reloadMp3,deleteMp3,isLoading,audioClips})=> {
     const [formData,setFormData] = useState(initialFormState)
     const [modal, setModal] = useState(false);
     const [errors,setErrors] = useState({})
-    const toggle = ()=> setModal(!modal)
+    const toggle = ()=> {
+        setModal(!modal)
+        setErrors({})
+    }
     const closeBtn = <button className="close" onClick={toggle}>&times;</button>;
 
     useEffect(() => {
