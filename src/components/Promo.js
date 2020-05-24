@@ -9,7 +9,6 @@ const Promo = () => {
                 <p>Register for free Guitar Training</p>
                 <button  className="btn btn-primary btn-lg" disabled>Register Now</button>
             </div>
-            
         </>
     )
 }

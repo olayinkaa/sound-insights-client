@@ -22,9 +22,9 @@ const AdminSidebar = () => {
                                 <Link to="/admin/aboutus" className="list-group-item list-group-item-action text-dark">
                                     <i className="fas fa-notes-medical"></i> <span>SLIDER</span>
                                 </Link>
-                                <Link to="/admin/aboutus" className="list-group-item list-group-item-action text-dark">
+                                {/* <Link to="/admin/aboutus" className="list-group-item list-group-item-action text-dark">
                                     <i className="fas fa-notes-medical"></i> <span>EMAIL</span>
-                                </Link>
+                                </Link> */}
                             </div>
                         </div>
                      <ChangeContent/>

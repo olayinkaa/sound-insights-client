@@ -16,7 +16,7 @@ export const AboutSchema = yup.object({
 export const EmailSchema = yup.object({
     subject:yup.string().required("message subject is required").min(5),
     email:yup.string().required("email is required").email(),
-    body:yup.string().required("message body is required").min(10),
+    body:yup.string().required("message body is required").min(10).max(255,"The body message cannot be more than 255 characters"),
 });
 
 
