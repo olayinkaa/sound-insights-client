@@ -9,6 +9,8 @@ import 'react-redux-toastr/lib/css/react-redux-toastr.min.css'
 // import NavBar from './components/NavBar';
 import { Switch,Route } from 'react-router-dom';
 import Routes from './routing/Routes'
+import Login from './auth/Login';
+import Register from './auth/Register';
 
 function App() {
   return (
@@ -24,6 +26,8 @@ function App() {
             />
             <Switch>
               <Route exact path="/" component={Home} />
+              <Route exact path="/login" component={Login} />
+              <Route exact path="/register" component={Register} />
               <Route component={Routes} />
             </Switch>
           </Provider>
