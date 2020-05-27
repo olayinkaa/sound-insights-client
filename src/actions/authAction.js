@@ -5,7 +5,6 @@ import {
   LOGIN_SUCCESS,
   LOGIN_FAIL,
   LOGOUT,
-  CLEAR_PROFILE
 } from './types';
 import setAuthToken from '../utils/setAuthToken';
 import {toastr} from 'react-redux-toastr'

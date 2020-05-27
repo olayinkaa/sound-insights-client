@@ -1,6 +1,6 @@
 import React,{Fragment} from 'react'
 import ManageMp3 from './ManageMp3'
-import {Switch, Route} from 'react-router-dom'
+import {Switch} from 'react-router-dom'
 import DashBoard from './DashBoard'
 import ManageAbout from './ManageAbout'
 import PrivateRoute from '../routing/PrivateRoute'
