@@ -10,7 +10,7 @@ const DashBoard = ({getAnalytics,analytics}) => {
         return () => {}
       }, [getAnalytics]);
 
-    const {total_downloadable_mp3:downloadable,total_not_downloadable_mp3:notDownloadable} = analytics
+    const {total_downloadable_mp3:downloadable,total_not_downloadable_mp3:notDownloadable,registerUser} = analytics
     return (
         <Fragment>
                 <div className="card px-2">
@@ -43,7 +43,7 @@ const DashBoard = ({getAnalytics,analytics}) => {
                                    <div className="inner">
                                         <h3>
                                             <i className="fas fa-fw fa-user" />
-                                            0
+                                            {registerUser}
                                         </h3>
                                         <h4>Total registered user</h4>
                                    </div>
