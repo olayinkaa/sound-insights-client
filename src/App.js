@@ -16,6 +16,8 @@ import setAuthToken from './utils/setAuthToken';
 import jwt_decode from 'jwt-decode';
 import { LOGIN_SUCCESS} from './actions/types'
 import {logout} from './actions/authAction'
+// import PrivateRoute from './routing/PrivateRoute'
+// import PageNotFound from './components/PageNotFound';
 
 const accessToken = localStorage.jwt_token
 if(accessToken){

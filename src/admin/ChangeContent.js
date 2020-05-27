@@ -4,6 +4,7 @@ import {Switch} from 'react-router-dom'
 import DashBoard from './DashBoard'
 import ManageAbout from './ManageAbout'
 import PrivateRoute from '../routing/PrivateRoute'
+import PageNotFound from '../components/PageNotFound'
 
 const ChangeContent = () => {
     return (
@@ -13,6 +14,7 @@ const ChangeContent = () => {
                         <PrivateRoute exact path='/admin' component={DashBoard} />
                         <PrivateRoute exact path='/admin/mp3' component={ManageMp3} />
                         <PrivateRoute exact path='/admin/aboutus' component={ManageAbout} />
+                        <PrivateRoute component={PageNotFound}/>
                 </Switch>
             </div>
           
