@@ -1,7 +1,18 @@
 import React,{Fragment} from 'react'
 import {Link} from 'react-router-dom'
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
+import {setAlert} from '../actions/alert'
+import {register} from '../actions/authAction'
+import {Formik,Form} from 'formik'
+import {Button,Col,Row} from 'reactstrap'
+import {CustomTextInput} from '../components/FormikCustomFormTypes'
+import {RegisterSchema} from '../utils/ValidationSchema'
+import { useHistory } from 'react-router-dom';
 
-const Login = () => {
+const Register = ({register}) => {
+const history = useHistory();
+
 return (
     <Fragment>
         <div className="container">
@@ -14,47 +25,67 @@ return (
                                     <h3 className="mb-0 text-center">Sign up for an Account</h3>
                                 </div>
                                 <div className="card-body">
-                                    <form autoComplete="off" noValidate>
-                                        <div className="form-group">
-                                            <label htmlFor="uname1">Full Name</label>
-                                            <input 
-                                            type="text" 
-                                            className="form-control form-control-lg rounded-0" 
-                                            name="name" 
-                                            required 
-                                            />
-                                        </div>
-                                        <div className="form-group">
-                                            <label htmlFor="uname1">Username</label>
-                                            <input 
-                                            type="email" 
-                                            className="form-control form-control-lg rounded-0" 
-                                            name="email" 
-                                            required 
-                                            />
-                                        </div>
-                                        <div className="form-group">
-                                            <label>Password</label>
-                                            <input 
-                                            type="password" 
-                                            className="form-control form-control-lg rounded-0" 
-                                            name="password"
-                                            required 
-                                            autoComplete="new-password" 
-                                            />
-                                        </div>
-                                        <div className="form-group">
-                                            <label>Confirm Password</label>
-                                            <input 
-                                            type="password" 
-                                            className="form-control form-control-lg rounded-0" 
-                                            name="password_confirmation"
-                                            required 
-                                            autoComplete="new-password" 
-                                            />
-                                        </div>
-                                        <button type="submit" className="btn btn-success btn-lg btn-block" disabled>Register</button>
-                                    </form>
+                                    <Formik 
+                                        initialValues={{
+                                            name:'',
+                                            email:'',
+                                            password:'',
+                                            password_confirmation:''
+                                        }} 
+                                        onSubmit={async(data,{setSubmitting})=>{
+                                            setSubmitting(true);
+                                            register(data,history)
+                                        }}
+                                        validationSchema={RegisterSchema}
+                                        >
+                                            {({isSubmitting})=>(
+                                            <Form>
+                                            <Row>
+                                                <Col md="12" className="mb-3">
+                                                    <CustomTextInput
+                                                    label="Name"
+                                                    labelFor="name"
+                                                    placeholder=""
+                                                    name="name"
+                                                    type="text"
+                                                    />
+                                                </Col>
+                                                <Col md="12" className="mb-3">
+                                                    <CustomTextInput
+                                                    type="email"
+                                                    label="Email"
+                                                    labelFor="email"
+                                                    name="email"
+                                                    />
+                                                </Col>
+                                                <Col md="12" className="mb-3">
+                                                    <CustomTextInput
+                                                    type="password"
+                                                    label="password"
+                                                    labelFor="Password"
+                                                    name="password"
+                                                    />
+                                                </Col>
+                                                <Col md="12" className="mb-3">
+                                                    <CustomTextInput
+                                                    type="password"
+                                                    label="Confirm Password"
+                                                    labelFor="password_confirmation"
+                                                    name="password_confirmation"
+                                                    />
+                                                </Col>
+                                                <Col md="12">
+                                                    <Button type="submit" block color="primary" disabled={isSubmitting} >
+                                                        <i className="fas fa-plus"></i> Register
+                                                    </Button>{' '}
+                                                </Col>
+                                            </Row>
+                                                {/* <Col md="12">
+                                                    {JSON.stringify(values,null,2)}
+                                                </Col> */}
+                                            </Form>
+                                            )}
+                                        </Formik> 
                                     <p className="p-2">
                                         Already have an account? <Link to="/login" className="text-primary">Sign In</Link>
                                     </p>
@@ -72,4 +103,13 @@ return (
     )
 }
 
-export default Login
+
+Register.propTypes = {
+   
+    setAlert: PropTypes.func.isRequired,
+    register: PropTypes.func.isRequired,
+
+  };
+
+
+export default connect(null,{setAlert,register})(Register)

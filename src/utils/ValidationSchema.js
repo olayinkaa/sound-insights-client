@@ -20,3 +20,20 @@ export const EmailSchema = yup.object({
 });
 
 
+export const RegisterSchema = yup.object({
+    name:yup.string().required("name is required").min(2),
+    email:yup.string().required().email(),
+    password:yup.string().required("password is required"),
+    password_confirmation:yup.string().required("confirm password is required").when("password", {
+        is: val => (val && val.length > 0 ? true : false),
+        then:yup.string().oneOf(
+          [yup.ref("password")],
+          "Both password need to be the same"
+        )
+      })
+});
+
+export const LoginSchema = yup.object({
+    email:yup.string().required().email(),
+    password:yup.string().required("password is required"),
+});

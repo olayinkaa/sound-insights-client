@@ -1,7 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
-const NavBar = () => {
+const NavBar = ({auth}) => {
+
     return (
         <div>
             <header id="navbar">
@@ -29,9 +32,11 @@ const NavBar = () => {
                             <li className="nav-item">
                                 <a className="nav-link" href="#contact">CONTACT</a>
                             </li>
-                            <li className="nav-item">
+                            {auth &&
+                             <li className="nav-item">
                                 <Link className="nav-link" to="/admin">DASHBOARD</Link>
                             </li>
+                            }
                         </ul>
                     </div>
                 </nav>
@@ -40,4 +45,14 @@ const NavBar = () => {
     )
 }
 
-export default NavBar
+
+NavBar.propTypes = {
+    auth: PropTypes.bool
+  };
+  
+  const mapStateToProps = state => ({
+    auth: state.authReducer.isAuthenticated
+  });
+  
+
+export default connect(mapStateToProps)(NavBar)

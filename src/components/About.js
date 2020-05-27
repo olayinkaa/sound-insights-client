@@ -14,7 +14,7 @@ const About = ({getAboutUs,aboutus})=> {
       }, [getAboutUs]);
 
     const contents = ()=>{
-        return aboutus.map(data=>(
+        return aboutus!==null&&aboutus!==undefined&&aboutus.length>0&&aboutus.map(data=>(
         <div className="col-md-12 text-justify" key={data.id}>
             <h2>{data.title}</h2>
             <div className="about-content">

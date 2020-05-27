@@ -45,7 +45,7 @@ const ManageAbout = ({getAboutUs,reloadAboutUs,deleteAboutUs,aboutus,isLoading})
         })
         setTimeout(()=>{
          setModal(true)
-        },500)
+        },1500)
         setEdit(true)
     }
 
