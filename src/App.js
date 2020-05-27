@@ -6,7 +6,6 @@ import store from './store'
 import {Provider} from 'react-redux'
 import ReduxToastr from 'react-redux-toastr'
 import 'react-redux-toastr/lib/css/react-redux-toastr.min.css'
-// import NavBar from './components/NavBar';
 import { Switch,Route } from 'react-router-dom';
 import Routes from './routing/Routes'
 import Login from './auth/Login';

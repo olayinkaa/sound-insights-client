@@ -1,13 +1,13 @@
 import axios from 'axios'
 
 
-const host = "http://127.0.0.1"
-const port = 5000;
-export const baseURL = `${host}:${port}`
+// const host = "http://127.0.0.1"
+// const port = 5000;
+// export const baseURL = `${host}:${port}`
 
 //-------------------------------------------production
-// const host = "https://soundinsights.herokuapp.com"
-// export const baseURL = `${host}`
+const host = "https://soundinsights.herokuapp.com"
+export const baseURL = `${host}`
 
 
 const httpTimeout = '20000' 
