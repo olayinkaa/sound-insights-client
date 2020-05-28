@@ -23,6 +23,7 @@ const ManageAbout = ({getAboutUs,reloadAboutUs,deleteAboutUs,aboutus,isLoading})
     const toggle = ()=> {
         setModal(!modal)
         setFormData(initialFormState)
+        setEdit(false)
     }
     const closeBtn = <button className="close" onClick={toggle}>&times;</button>;
 
@@ -129,9 +130,7 @@ const ManageAbout = ({getAboutUs,reloadAboutUs,deleteAboutUs,aboutus,isLoading})
                             setSubmitting(false)
                             toastr.error('About Us',`System Error, contact the developer`,reactReduxToastrOptions());
                         })
-                        :
-                        createAboutUs(data)
-                        .then(res=>{
+                        :createAboutUs(data).then(res=>{
                             setSubmitting(false)
                             setModal(false)
                             toastr.success('About Us',`${res.data.message}`,reactReduxToastrOptions());
