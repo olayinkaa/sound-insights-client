@@ -1,5 +1,4 @@
 export const reactReduxToastrOptions=(position="top-right")=>{ 
-
     const options = {
          position:position
      }

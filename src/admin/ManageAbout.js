@@ -10,6 +10,7 @@ import PropTypes from "prop-types";
 import MyLoader from '../components/MyLoader'
 import {toastr} from 'react-redux-toastr'
 import {reactReduxToastrOptions} from '../utils/constants'
+import SimpleBackdrop from '../components/SimpleBackdrop'
 
 const initialFormState = {
     title:"",
@@ -20,6 +21,7 @@ const ManageAbout = ({getAboutUs,reloadAboutUs,deleteAboutUs,aboutus,isLoading})
     const [formData,setFormData] = useState(initialFormState)
     const [errors,setErrors] = useState({});
     const [isEdit,setEdit] = useState(false)
+    const [spinner,setSpinner] = useState(false)
     const toggle = ()=> {
         setModal(!modal)
         setFormData(initialFormState)
@@ -39,14 +41,14 @@ const ManageAbout = ({getAboutUs,reloadAboutUs,deleteAboutUs,aboutus,isLoading})
         deleteAboutUs(id);
       };
 
-    const toUpdate= (e,id)=>{
+    const toUpdate= async (e,id)=>{
         e.preventDefault()
-        getRecord(id).then(res=>{
+        setSpinner(true)
+        await getRecord(id).then(res=>{
             setFormData(res.data.data)
         })
-        setTimeout(()=>{
-         setModal(true)
-        },1500)
+        setSpinner(false)
+        setModal(true)
         setEdit(true)
     }
 
@@ -74,6 +76,7 @@ const ManageAbout = ({getAboutUs,reloadAboutUs,deleteAboutUs,aboutus,isLoading})
 
     return isLoading? <MyLoader/> : (
         <Fragment>
+        {spinner && <SimpleBackdrop/>}
         <div className="row mb-2">
             <div className="col-md-9">
                 <input type="text"/>

@@ -7,7 +7,7 @@ import Promo from './Promo'
 import ContactUs from './ContactUs'
 import BottomFooter from './BottomFooter'
 import NavBar from './NavBar'
-
+import YoutubeVideo from './YoutubeVideo';
 class Home extends Component {
     render() {
         return (
@@ -26,10 +26,14 @@ class Home extends Component {
                     <div className="container">
                         <ServiceTable/>
                     </div>
+                    <section className="container">
+                        <YoutubeVideo/>
+                    </section>
                 </section>
                 <section id="promo">
                     <Promo/>
                 </section>
+              
                 <section id="contact" className="bg-dark">
                     <ContactUs/>
                 </section>

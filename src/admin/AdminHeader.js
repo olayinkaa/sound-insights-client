@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import {logout} from '../actions/authAction'
+import {Button} from '@material-ui/core'
 
 const AdminHeader = ({logout}) => {
 
@@ -25,9 +26,12 @@ return (
                                 <Link to="/" className={`btn btn-default ${Main.create} mx-1`}>
                                     <span className="text-dark">Home</span>
                                 </Link>
-                                <button className={`btn btn-danger mt-3 float-right`} onClick={()=>logout()}>
+                                {/* <button className={`btn btn-danger mt-3 float-right`} onClick={()=>logout()}>
                                     Logout
-                                </button>
+                                </button> */}
+                                <Button variant="contained" color="secondary" className="mt-3" onClick={()=>logout()}>
+                                    Logout
+                                </Button>
                             </div>
                         </div>
                     </div>

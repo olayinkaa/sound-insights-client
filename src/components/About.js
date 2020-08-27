@@ -8,9 +8,6 @@ const About = ({getAboutUs,aboutus})=> {
     
     useEffect(() => {
         getAboutUs()
-        return () => {
-
-        }
       }, [getAboutUs]);
 
     const contents = ()=>{

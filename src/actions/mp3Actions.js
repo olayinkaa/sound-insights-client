@@ -28,7 +28,7 @@ export const reloadMp3 = ()=> async dispatch => {
 export const createNewMP3 = (data)=>{
 
     return axiosClient.post(url,data,{
-            headers:{'content-type': 'multipart/form-data'}
+        headers:{'content-type': 'multipart/form-data'}
     })
 }
 
